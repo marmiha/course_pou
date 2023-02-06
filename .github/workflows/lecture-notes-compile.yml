@@ -1,6 +1,11 @@
-name: Build LaTeX document
-run-name: ${{ github.actor }} pushed a change that triggered compilation of lecture notes.
-on: [push]
+name: Compile Lecture Notes PDF (Artifact)
+run-name: ${{ github.actor }} pushed a change that triggered the compilation of lecture notes.
+
+on: 
+  push:
+    paths:
+      - wwu_book
+
 jobs:
   build_latex:
     runs-on: ubuntu-latest
