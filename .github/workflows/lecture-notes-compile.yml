@@ -4,8 +4,8 @@ run-name: ${{ github.actor }} pushed a change that triggered the compilation of 
 on: 
   release:
   push:
-    paths:
-      - wwu_book
+#    paths:
+#      - wwu_book
 
 jobs:
   build_latex:
