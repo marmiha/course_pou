@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v3
+      - name: Set up Environment
+        run: echo "VERSION=$(grep -o '\\textbf{Working with uncertainty}\\\\ \\begin{small}.*\\end{small}' PoU.tex | grep -o 'v\d*.\d*')" >> $GITHUB_ENV
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
@@ -21,11 +23,11 @@ jobs:
       - name: Upload Lecture Notes PDF
         uses: actions/upload-artifact@v3
         with:
-          name: PoU.pdf
+          name: PoU-${{ env.VERSION }}.pdf
           path: wwu_book/PoU.pdf
       - name: Upload Notes Compile Log
         uses: actions/upload-artifact@v3
         with:
-          name: PoU.log
+          name: PoU-${{ env.VERSION }}.log
           path: wwu_book/PoU.log
 
