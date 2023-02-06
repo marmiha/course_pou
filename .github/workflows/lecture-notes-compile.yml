@@ -14,9 +14,8 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v3
       - name: Set up Environment
-        run: |
-          echo "VERSION=$(grep -o '\\textbf{Working with uncertainty}\\\\ \\begin{small}.*\\end{small}' wwu_book/PoU.tex | grep -o 'v\d*.\d*')" >> $GITHUB_ENV
-          echo ${{ env.VERSION }}
+      - run: echo "VERSION=$(grep -o '\\textbf{Working with uncertainty}\\\\ \\begin{small}.*\\end{small}' wwu_book/PoU.tex | grep -o 'v\d*.\d*')" >> $GITHUB_ENV
+      - run: echo ${{ env.VERSION }}
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
