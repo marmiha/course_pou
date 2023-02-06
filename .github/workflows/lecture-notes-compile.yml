@@ -24,11 +24,11 @@ jobs:
       - name: Upload Lecture Notes PDF
         uses: actions/upload-artifact@v3
         with:
-          name: PoU.pdf
+          name: PoU${{ env.VERSION }}.pdf
           path: wwu_book/PoU.pdf
       - name: Upload Notes Compile Log
         uses: actions/upload-artifact@v3
         with:
-          name: PoU.log
+          name: PoU${{ env.VERSION }}.log
           path: wwu_book/PoU.log
 
