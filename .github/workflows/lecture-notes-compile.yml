@@ -10,7 +10,9 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: wwu_book/PoU.tex
+          working_directory: wwu_book
+          root_file: PoU.tex
+          continue_on_error: true
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:
